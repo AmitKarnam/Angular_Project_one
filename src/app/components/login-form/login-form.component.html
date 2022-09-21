@@ -1,0 +1,28 @@
+<form [formGroup]="registerForm">
+    
+  
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="text" formControlName="email" placeholder="Enter Email" name="uname" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit" (click)="login()">Log In</button>
+
+      <div class="OAuth">  
+
+        <div (click)="googleLogin()" id="googleAuth">
+          <a>Login with Google</a>
+        </div>
+
+        <div id="phoneAuth">
+          <a routerLink="/phoneNumber">Login with phone number</a>
+        </div>
+    
+      </div>
+    </div>
+    
+  
+
+  </form>

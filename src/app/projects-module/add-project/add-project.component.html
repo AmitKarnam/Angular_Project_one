@@ -1,0 +1,42 @@
+<div>
+    <h1>Add Project</h1>
+
+<form (ngSubmit)="onSubmit()">
+    
+    <label for="projectName">Project Name : </label>
+    <input [(ngModel)]="project.name" id="projectName" type="text" name="name">
+    <br>
+
+    <label for="description">Project Description : </label>
+    <input [(ngModel)]="project.description" id="description" type="text" name="description">
+    <br>
+
+    <label for="startDate">Start Date : </label>
+    <input [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
+    <br>
+
+    <label for="duration">Project Duration(In weeks) : </label>
+    <input [(ngModel)]="project.duration" id="duration" type="number" name="duration">
+    <br>
+
+    <label for="budget">Project Weeks (In INR) : </label>
+    <input [(ngModel)]="project.budget" id="budget" type="number" name="budget">
+    <br>
+
+    <label for="status">Project Status : </label>
+    <select  [(ngModel)]="project.status" id="status" name="status">
+        <option value="New" >New</option>
+        <option value="Budgeted" >Budgeted</option>
+        <option value="in-progress" >in-progress</option>
+        <option value="completed">completed</option> 
+    </select>
+    <br>
+
+    <label  for="staffCost">Staff Cost : </label>
+    <input  [(ngModel)]="project.staffCost" id="staffCost" type="number" name="staffCost">
+    <br>
+    
+    <input type="submit" class="btn" value="Save">
+
+ </form>
+</div>

@@ -1,0 +1,53 @@
+*{
+  color: black;
+}
+
+#page-heading{
+  text-decoration: none;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+div > nav{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+div > nav > a{
+  padding: 1%;
+  border: 0%;
+  font-size: large;
+  color:#718096;
+  text-decoration: none;
+  font-size: large;
+  text-align: right;
+}
+
+.nav-links:hover{
+  text-decoration: underline;
+  text-decoration-color:black ;   
+}
+
+main{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#greeting{
+  font-size: larger;
+  font-weight: bold;
+}
+
+.blue-link{
+  color: blue;
+}
+
+footer{
+  background-color: lightgray;
+  padding: 3%;
+  font-weight: 500;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+}

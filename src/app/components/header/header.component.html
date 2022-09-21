@@ -1,0 +1,14 @@
+<header>
+    <div>
+        <h1><a  href="javascript:void(0);"  id="page-heading" style="cursor:pointer">BootCamp 1</a></h1>
+    </div>
+    <div>
+        <nav>
+            <a routerLinkActive="active" href="" class="nav-links">Home</a>
+            <a *ngIf="userLoggedIn" routerLink="/projects" class="nav-links">Projects</a>
+            <a *ngIf="userLoggedIn" routerLink="/profile" class="nav-links">Profile</a>
+            <a class="nav-links" (click)="toggleLogin()">{{userLoggedIn? 'Logout' : 'Login'}}</a>
+        </nav>
+    </div>
+</header>
+<hr>

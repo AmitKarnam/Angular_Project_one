@@ -1,0 +1,27 @@
+<div>
+    <h2>Project List</h2>
+
+    <button routerLink="/projects/add-project">Add Project</button>
+
+    <br>
+    <br>
+
+    <table id="projects">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th style="width: 15px;"></th>
+        <th style="width: 15px;"></th>
+      </tr>
+      <tr *ngFor="let project of projects">
+        <td>{{ project?.id }}</td>
+        <td>{{ project?.name }}</td>
+        <td><button (click)="update(project)">✎</button></td>
+        <td><button (click)="delete(project)">🗑️</button></td>
+      </tr>
+    </table>
+    
+    <br>
+    <button (click)="back()">BACK</button>
+    
+  </div>
