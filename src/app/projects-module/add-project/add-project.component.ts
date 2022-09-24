@@ -3,7 +3,7 @@ import { GetProjectServiceService } from 'src/app/services/get-project-service.s
 import { projectSchema } from '../projects';
 import { Location } from '@angular/common';
 import { ProjectsComponent } from '../projects/projects.component';
-
+import { members } from '../members';
 
 @Component({
   selector: 'app-add-project',
@@ -12,33 +12,46 @@ import { ProjectsComponent } from '../projects/projects.component';
 })
 export class AddProjectComponent implements OnInit,OnDestroy {
 
-  project!: projectSchema;
+  project: projectSchema;
+  project_members: members[];
+  memberFlag:Boolean;
 
 
   constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
 
   ngOnInit(): void {
+    this.memberFlag=ProjectsComponent.updateFlag;
     if(ProjectsComponent.updateFlag === true){
         this.project = ProjectsComponent.projectEdit;
     }
     else{
       this.project ={}
     }
+    if(this.project){
+      this.getProjectService.getMembers(this.project.id).subscribe(res=>{
+        this.project_members=res;
+      })
   }
+}
+  
   ngOnDestroy(): void {
     ProjectsComponent.projectEdit={}
   }
 
-  onSubmit() {
+  async onSubmit() {
       if( ProjectsComponent.updateFlag===false ){
-        this.getProjectService.adddProject(this.project);
-       this.project={}
-        this.location.back();
+        console.log(this.project)
+        await
+        this.getProjectService.adddProject(this.project).then(() => alert('Success')).catch(()=>alert('Error Addind Project'))
+        this.location.back()
+        this.project={}
       }
       else if( ProjectsComponent.updateFlag===true){
-        this.getProjectService.updateProject(this.project);
+        await
+        this.getProjectService.adddProject(this.project).then(() => alert('Success')).catch(()=>alert('Error Addind Project'))
        this.project={}
         this.location.back();
+        ProjectsComponent.updateFlag=false;
       }
     }
   }

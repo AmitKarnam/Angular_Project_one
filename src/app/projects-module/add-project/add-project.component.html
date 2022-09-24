@@ -40,3 +40,32 @@
 
  </form>
 </div>
+
+<div *ngIf="this.memberFlag" >
+    <h1>Member Details</h1>
+    <button>Add Members</button>
+    
+    <h3>Member's List </h3>
+
+    <table id="projects">
+        <thead>
+            <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Member email</th>
+            <th>Member Phone Number</th>
+            <th>Hours per week</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let member of project_members">
+                <td>{{member.firstName}}</td>
+                <td>{{member.lastName}}</td>
+                <td>{{member.email}}</td>
+                <td>{{member.phoneNo}}</td>
+                <td>{{member.hoursPerWeek}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

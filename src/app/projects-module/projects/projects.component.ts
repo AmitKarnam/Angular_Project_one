@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import { GetProjectServiceService } from 'src/app/services/get-project-service.service';
 import { projectSchema } from '../projects';
 import { Router } from '@angular/router';
+import { members } from '../members';
 
 
 @Component({

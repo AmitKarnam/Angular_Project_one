@@ -24,24 +24,30 @@ export class GetProjectServiceService {
   getProjects() {
    return this.projects;
   }
+  
 
-  adddProject(project: projectSchema) {
-      this.projectCollections.add(project);
+  async adddProject(project: projectSchema) {
+      return this.firestore.collection<projectSchema>('projects').add(project);
    }
 
-  deleteProject(project: projectSchema) {
+  async deleteProject(project: projectSchema) {
     this.projectDoc = this.firestore.doc('projects/'+project.id)
     this.projectDoc.delete()
   }
 
-  updateProject(project: projectSchema) {
-    this.firestore.doc('projects.id'+project.id).update(project);
+  async updateProject(project: projectSchema) {
+    return this.firestore.doc('projects.id'+project.id).update(project);
   }
 
   getMembers(id:projectSchema['id']) {
       this.members = this.firestore.collection<members>('projects/'+id+'/members').valueChanges({idField:'id'})
       return this.members; 
   }
+
+    addMembers(id:projectSchema['id'],members_data:members){
+        this.firestore.collection<members>('projects/'+id+'/members').add(members_data);
+    }
+  
 
 
 

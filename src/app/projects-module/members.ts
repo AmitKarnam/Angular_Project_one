@@ -1,3 +1,8 @@
 export interface members {
-    name?: String;
+    id?: String;
+    firstName?: String;
+    lastName?: String;
+    email?: String;
+    phoneNo?: Number;
+    hoursPerWeek?: Number;
 }
