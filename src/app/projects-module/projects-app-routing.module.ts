@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { AddMembersComponent } from './add-members/add-members.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
   },
   {
     path: "add-project",component: AddProjectComponent
-  }
+  },
+  {
+    path: "add-members",component: AddMembersComponent
+  },
 ];
 
 

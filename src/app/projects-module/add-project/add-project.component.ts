@@ -1,4 +1,4 @@
-import { Component, OnInit ,OnDestroy} from '@angular/core';
+import { Component, OnInit ,OnDestroy, Injectable} from '@angular/core';
 import { GetProjectServiceService } from 'src/app/services/get-project-service.service';
 import { projectSchema } from '../projects';
 import { Location } from '@angular/common';
@@ -10,16 +10,19 @@ import { members } from '../members';
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css']
 })
+
+
 export class AddProjectComponent implements OnInit,OnDestroy {
 
   project: projectSchema;
   project_members: members[];
   memberFlag:Boolean;
-
+  static id: projectSchema['id']; 
 
   constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
 
   ngOnInit(): void {
+    AddProjectComponent.id = ProjectsComponent.projectEdit.id
     this.memberFlag=ProjectsComponent.updateFlag;
     if(ProjectsComponent.updateFlag === true){
         this.project = ProjectsComponent.projectEdit;
@@ -47,10 +50,11 @@ export class AddProjectComponent implements OnInit,OnDestroy {
         this.project={}
       }
       else if( ProjectsComponent.updateFlag===true){
+        
         await
-        this.getProjectService.adddProject(this.project).then(() => alert('Success')).catch(()=>alert('Error Addind Project'))
-       this.project={}
-        this.location.back();
+        this.getProjectService.updateProject(this.project).then(() => alert('Success')).catch(()=>alert('Error updating Project'))
+        this.project={}
+       // this.location.back();
         ProjectsComponent.updateFlag=false;
       }
     }

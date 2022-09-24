@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()">
+    
+    <label for="firstName">First Name : </label>
+    <input [(ngModel)]="member_data.firstName" id="member_data.firstName" type="text" name="firstName">
+    <br>
+
+    <label for="lastName">Last Name : </label>
+    <input [(ngModel)]="member_data.lastName" id="lastName" type="text" name="lastName">
+    <br>
+
+    <label for="email">email : </label>
+    <input [(ngModel)]="member_data.email" id="email" type="email" name="email">
+    <br>
+
+    <label for="phoneNo">phoneNo : </label>
+    <input [(ngModel)]="member_data.phoneNo" id="phoneNo" type="number" name="phoneNo">
+    <br>
+
+    <label for="hoursPerWeek">Hours per week : </label>
+    <input [(ngModel)]="member_data.hoursPerWeek" id="hoursPerweek" type="number" name="hoursPerWeek">
+    <br>
+    
+    <input type="submit" class="btn" value="Save">
+
+ </form>
+

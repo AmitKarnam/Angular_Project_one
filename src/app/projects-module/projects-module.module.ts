@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsAppRoutingModule } from './projects-app-routing.module';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule } from '@angular/forms';
+import { AddMembersComponent } from './add-members/add-members.component';
 
 
 
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ProjectsComponent,
     AddProjectComponent,
+    AddMembersComponent,
     
   ],
   exports: [

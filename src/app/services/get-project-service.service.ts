@@ -24,7 +24,6 @@ export class GetProjectServiceService {
   getProjects() {
    return this.projects;
   }
-  
 
   async adddProject(project: projectSchema) {
       return this.firestore.collection<projectSchema>('projects').add(project);
@@ -36,7 +35,9 @@ export class GetProjectServiceService {
   }
 
   async updateProject(project: projectSchema) {
-    return this.firestore.doc('projects.id'+project.id).update(project);
+    //console.log(project.id)
+    return this.firestore.doc('projects/'+project.id).update(project);
+
   }
 
   getMembers(id:projectSchema['id']) {
