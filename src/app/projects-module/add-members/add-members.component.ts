@@ -5,6 +5,8 @@ import { members } from '../members';
 import { projectSchema } from '../projects';
 import { ProjectsComponent } from '../projects/projects.component';
 import { AddProjectComponent } from '../add-project/add-project.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-members',
@@ -28,7 +30,7 @@ export class AddMembersComponent implements OnInit {
       lastName: '',
       email: '',
       phoneNo: 0,
-      hoursPerWeek: 0
+      hoursPerWeek: 0,
     }
   }
 
@@ -41,7 +43,7 @@ export class AddMembersComponent implements OnInit {
     await
     
     this.getProjectService.addMembers(this.project_id,this.member_data)
-    this.location.back()
+    
     this.member_data = {}
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, map, elementAt } from 'rxjs';
 import { projectSchema } from '../projects-module/projects'
 import { members } from '../projects-module/members';
 
@@ -14,6 +14,7 @@ export class GetProjectServiceService {
   private projectDoc: AngularFirestoreDocument<projectSchema> | undefined;
   private projects: Observable<projectSchema[]>
   private members!: Observable<members[]>;
+  private membersToDel!: Observable<members[]>
 
   constructor(private firestore: AngularFirestore) {
     this.projectCollections = firestore.collection<projectSchema>('projects');
@@ -30,8 +31,15 @@ export class GetProjectServiceService {
    }
 
   async deleteProject(project: projectSchema) {
+    this.membersToDel = this.getMembers(project.id);
+    this.membersToDel.forEach(element => {
+      element.forEach(pro => {
+        this.firestore.doc('projects/'+project.id+'/members'+pro.id).delete();
+      })
+    })
     this.projectDoc = this.firestore.doc('projects/'+project.id)
     this.projectDoc.delete()
+    
   }
 
   async updateProject(project: projectSchema) {
