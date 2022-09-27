@@ -53,7 +53,7 @@ export class GetProjectServiceService {
       return this.members; 
   }
 
-    addMembers(id:projectSchema['id'],members_data:members){
+  addMembers(id:projectSchema['id'],members_data:members){
         this.firestore.collection<members>('projects/'+id+'/members').add(members_data);
     }
   
