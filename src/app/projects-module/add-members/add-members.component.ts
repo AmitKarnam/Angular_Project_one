@@ -6,7 +6,7 @@ import { projectSchema } from '../projects';
 import { ProjectsComponent } from '../projects/projects.component';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { Router } from '@angular/router';
-
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 @Component({
   selector: 'app-add-members',
@@ -19,6 +19,7 @@ export class AddMembersComponent implements OnInit {
 
   member_data: members;
   project_id: projectSchema['id'];
+  
   
 
   constructor(private location: Location, private getProjectService: GetProjectServiceService ) { }

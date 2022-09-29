@@ -5,4 +5,5 @@ export interface members {
     email?: String;
     phoneNo?: Number;
     hoursPerWeek?: Number;
+    profilePic?: File;
 }

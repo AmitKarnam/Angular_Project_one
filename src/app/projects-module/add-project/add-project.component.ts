@@ -22,13 +22,14 @@ export class AddProjectComponent implements OnInit,OnDestroy {
   constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
 
   ngOnInit(): void {
-    AddProjectComponent.id = ProjectsComponent.projectEdit.id
-    this.memberFlag=ProjectsComponent.updateFlag;
+      this.memberFlag=ProjectsComponent.updateFlag;
     if(ProjectsComponent.updateFlag === true){
+        AddProjectComponent.id == ProjectsComponent.projectEdit.id
         this.project = ProjectsComponent.projectEdit;
     }
     else{
       this.project ={}
+
     }
     if(this.project){
       this.getProjectService.getMembers(this.project.id).subscribe(res=>{
@@ -39,6 +40,7 @@ export class AddProjectComponent implements OnInit,OnDestroy {
   
   ngOnDestroy(): void {
     ProjectsComponent.projectEdit={}
+    ProjectsComponent.updateFlag = false;
   }
 
   async onSubmit() {
@@ -50,7 +52,7 @@ export class AddProjectComponent implements OnInit,OnDestroy {
         this.project={}
       }
       else if( ProjectsComponent.updateFlag===true){
-        
+    
         await
         this.getProjectService.updateProject(this.project).then(() => alert('Success')).catch(()=>alert('Error updating Project'))
         this.project={}
