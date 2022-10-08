@@ -22,8 +22,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { OtpLoginFormComponent } from './components/otp-login-form/otp-login-form.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { PhoneNumberComponent } from './components/phone-number/phone-number.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,11 @@ import { PhoneNumberComponent } from './components/phone-number/phone-number.com
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

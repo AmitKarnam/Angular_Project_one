@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsAppRoutingModule } from './projects-app-routing.module';
 import { AddProjectComponent } from './add-project/add-project.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMembersComponent } from './add-members/add-members.component';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -22,7 +23,11 @@ import { AddMembersComponent } from './add-members/add-members.component';
   imports: [
     CommonModule,
     ProjectsAppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
+    
   ]
 })
 export class ProjectsModuleModule { }

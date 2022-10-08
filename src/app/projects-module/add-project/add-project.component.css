@@ -24,3 +24,37 @@ th {
     width: 100%;
     border-color: black;
 }
+
+.projectsDetail {
+    width: 40%;
+    float:left;
+    margin: 2px;
+    display: inline;
+}
+
+.membersDetail {
+    width: 90%;
+    margin: 2px;
+    display: inline;
+}
+
+.addProjectForm {
+    padding-left: 2%;
+}
+
+form  {
+    display: block;
+}
+
+label {
+    display:block;
+    font-weight: 500;
+    padding-bottom: 2px;
+    padding-top: 7px;
+}
+
+input {
+    padding: 6px;
+    width: auto;
+}
+

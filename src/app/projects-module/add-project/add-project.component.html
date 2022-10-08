@@ -1,40 +1,93 @@
-<div>
+<div class="projectsDetail">
+    <br>
     <h1>Add Project</h1>
 
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" class="addProjectForm">
     
-    <label for="projectName">Project Name : </label>
-    <input [(ngModel)]="project.name" id="projectName" type="text" name="name">
+    <mat-form-field>
+        <mat-label for="projectName">
+            Project Name
+        </mat-label>
+
+        <input type="text" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.name" id="projectName"  name="name">
+        <mat-error *ngIf="notNullFormControl.hasError('projectName') && !notNullFormControl.hasError('required')">Please Enter a Project name</mat-error>
+        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Name is <strong>required</strong></mat-error>
+    </mat-form-field>
+
     <br>
 
-    <label for="description">Project Description : </label>
-    <input [(ngModel)]="project.description" id="description" type="text" name="description">
+    <mat-form-field>
+        <mat-label for="description">
+            Project Description
+        </mat-label>
+
+        <input type="text" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.description" id="description"  name="description">
+        <mat-error *ngIf="notNullFormControl.hasError('projectDescription') && !notNullFormControl.hasError('required')">Please Enter Project Description</mat-error>
+        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Description is <strong>required</strong></mat-error>
+    </mat-form-field>
+
+    <br>
+<mat-form-field>
+    <mat-label for="startDate">Start Date : </mat-label>
+    <input matInput  [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
+</mat-form-field>   
+    <br>
     <br>
 
-    <label for="startDate">Start Date : </label>
-    <input [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
+    <mat-form-field>
+        <mat-label for="duration">
+            Project Duration(In weeks) 
+        </mat-label>
+
+        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.duration" id="duration"  name="duration">
+        <mat-error *ngIf="notNullFormControl.hasError('projectDuration') && !notNullFormControl.hasError('required')">Please Enter Project Duration</mat-error>
+        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Duration is <strong>required</strong></mat-error>
+    </mat-form-field>
+
+   <br>
+
+   <mat-form-field>
+        <mat-label for="budget">
+            Project Cost(In INR)
+        </mat-label>
+
+        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.budget" id="budget"  name="budget">
+        <mat-error *ngIf="notNullFormControl.hasError('projectBudget') && !notNullFormControl.hasError('required')">Please Enter Project Budget</mat-error>
+        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Budget is <strong>required</strong></mat-error>
+    </mat-form-field>
+
     <br>
 
-    <label for="duration">Project Duration(In weeks) : </label>
-    <input [(ngModel)]="project.duration" id="duration" type="number" name="duration">
-    <br>
-
-    <label for="budget">Project Weeks (In INR) : </label>
-    <input [(ngModel)]="project.budget" id="budget" type="number" name="budget">
-    <br>
-
-    <label for="status">Project Status : </label>
-    <select  [(ngModel)]="project.status" id="status" name="status">
+   
+<mat-form-field>
+    <mat-label for="status">Project Status : </mat-label>
+    <select matNativeControl required [formControl]="selectFormControl" [(ngModel)]="project.status" id="status" name="status" required>
         <option value="New" >New</option>
         <option value="Budgeted" >Budgeted</option>
         <option value="in-progress" >in-progress</option>
         <option value="completed">completed</option> 
     </select>
+    <mat-error *ngIf="selectFormControl.hasError('required')">
+        This field is required
+      </mat-error>
+
+</mat-form-field>
     <br>
 
-    <label  for="staffCost">Staff Cost : </label>
-    <input  [(ngModel)]="project.staffCost" id="staffCost" type="number" name="staffCost">
+    <mat-form-field >
+        <mat-label for="staffCost">
+           Staff Cost(In INR)
+        </mat-label>
+
+        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.staffCost" id="staffCost"  name="staffCost">
+        <mat-error *ngIf="notNullFormControl.hasError('staffCost') && !notNullFormControl.hasError('required')">Please Enter Staff Cost</mat-error>
+        <mat-error *ngIf="notNullFormControl.hasError('required')">Staff Cost is <strong>required</strong></mat-error>
+    </mat-form-field>
+
     <br>
+
     
     <input type="button" routerLink="/projects" class="btn" value="Cancel">
     <input type="submit" class="btn" value="Save">
@@ -42,30 +95,30 @@
  </form>
 </div>
 
-<div *ngIf="this.memberFlag" >
+<div *ngIf="this.memberFlag" class="membersDetail">
     <h1>Member Details</h1>
     <button routerLink="/projects/add-members">Add Members</button>
     
     <h3>Member's List </h3>
 
-    <table id="projects">
+    <table mat-table>
         <thead>
             <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Member email</th>
-            <th>Member Phone Number</th>
-            <th>Hours per week</th>
+            <th mat-header-cell >First Name</th>
+            <th mat-header-cell >Last Name</th>
+            <th mat-header-cell >Member email</th>
+            <th mat-header-cell >Member Phone Number</th>
+            <th mat-header-cell >Hours per week</th>
         </tr>
         </thead>
 
         <tbody>
             <tr *ngFor="let member of project_members">
-                <td>{{member.firstName}}</td>
-                <td>{{member.lastName}}</td>
-                <td>{{member.email}}</td>
-                <td>{{member.phoneNo}}</td>
-                <td>{{member.hoursPerWeek}}</td>
+                <td mat-cell>{{member.firstName}}</td>
+                <td mat-cell>{{member.lastName}}</td>
+                <td mat-cell>{{member.email}}</td>
+                <td mat-cell>{{member.phoneNo}}</td>
+                <td mat-cell>{{member.hoursPerWeek}}</td>
             </tr>
         </tbody>
     </table>
