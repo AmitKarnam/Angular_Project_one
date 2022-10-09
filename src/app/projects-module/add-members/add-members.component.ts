@@ -7,18 +7,29 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { Router } from '@angular/router';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: 'app-add-members',
   templateUrl: './add-members.component.html',
   styleUrls: ['./add-members.component.css']
 })
 
-
 export class AddMembersComponent implements OnInit {
 
   member_data: members;
   project_id: projectSchema['id'];
+
+  notNullFormControl = new FormControl('',[Validators.required,Validators.nullValidator]);
+  emailFormControl = new FormControl('',[Validators.required,Validators.email])
+  matcher = new MyErrorStateMatcher();
   
   
 

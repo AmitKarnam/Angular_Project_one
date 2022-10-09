@@ -16,8 +16,12 @@
       <tr *ngFor="let project of projects">
         <td>{{ project?.id }}</td>
         <td>{{ project?.name }}</td>
-        <td><button (click)="update(project)">✎</button></td>
-        <td><button (click)="delete(project)">🗑️</button></td>
+        <td><button mat-mini-fab color="accent" (click)="update(project)">
+          <mat-icon>mode_edit</mat-icon>
+        </button></td>
+        <td><button mat-mini-fab color="accent" (click)="delete(project)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </tr>
     </table>
     

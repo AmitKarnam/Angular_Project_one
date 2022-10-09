@@ -27,12 +27,13 @@
     </mat-form-field>
 
     <br>
-<mat-form-field>
-    <mat-label for="startDate">Start Date : </mat-label>
-    <input matInput  [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
-</mat-form-field>   
+
+    <mat-form-field>
+        <mat-label for="startDate">Start Date : </mat-label>
+        <input matInput  [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
+    </mat-form-field>   
     <br>
     <br>
 
@@ -88,9 +89,9 @@
 
     <br>
 
-    
+
     <input type="button" routerLink="/projects" class="btn" value="Cancel">
-    <input type="submit" class="btn" value="Save">
+    <input type="submit"class="btn" value="Save">
 
  </form>
 </div>

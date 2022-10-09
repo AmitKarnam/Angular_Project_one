@@ -56,18 +56,20 @@ export class AddProjectComponent implements OnInit,OnDestroy {
     ProjectsComponent.updateFlag = false;
   }
 
+
+
   async onSubmit() {
       if( ProjectsComponent.updateFlag===false ){
         console.log(this.project)
         await
-        this.getProjectService.adddProject(this.project).then(() => alert('Success')).catch(()=>alert('Error Addind Project'))
+        this.getProjectService.adddProject(this.project).then(() => alert("Success adding project")).catch(()=>alert('Error Adding Project'))
         this.location.back()
         this.project={}
       }
       else if( ProjectsComponent.updateFlag===true){
     
         await
-        this.getProjectService.updateProject(this.project).then(() => alert('Success')).catch(()=>alert('Error updating Project'))
+        this.getProjectService.updateProject(this.project).then(() => alert("Success updating project")).catch(()=>alert('Error updating Project'))
         this.project={}
        // this.location.back();
         ProjectsComponent.updateFlag=false;

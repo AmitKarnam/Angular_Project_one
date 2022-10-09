@@ -1,13 +1,20 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" class="login-form">
     
   
     <div class="container">
-      <label for="uname"><b>Email</b></label>
+
+    <mat-form-field appearance="fill" class="login-full-width">  
+      <mat-label for="uname"><b>Email</b></mat-label>
       <input type="text" formControlName="email" placeholder="Enter Email" name="uname" required>
-  
-      <label for="psw"><b>Password</b></label>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill" class="login-full-width">
+      <mat-label for="psw"><b>Password</b></mat-label>
       <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
-  
+    </mat-form-field>
+
       <button type="submit" (click)="login()">Log In</button>
 
       <div class="OAuth">  

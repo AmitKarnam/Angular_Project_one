@@ -4,6 +4,17 @@ form {
     margin-left: 365px;
     border: 3px solid #f1f1f1;
   }
+
+  .signup-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .signup-full-width {
+    width: 100%;
+  }
+    
   
   /* Full-width inputs */
   input[type=text], input[type=password] {
