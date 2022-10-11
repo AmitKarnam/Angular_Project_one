@@ -1,5 +1,4 @@
 <form (ngSubmit)="onSubmit()">
-    
     <mat-form-field>
         <mat-label for="firstName">First Name : </mat-label>
         <input matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.firstName" id="member_data.firstName" type="text" name="firstName">
@@ -39,8 +38,7 @@
         <mat-error *ngIf="notNullFormControl.hasError('required')">Hours Per Week is <strong>required</strong></mat-error>
     </mat-form-field>
     <br>
-    
-    <input type="submit" class="btn" value="Save">
+    <button mat-raised-button color="accent" type="submit">Save</button>
 
  </form>
 

@@ -1,14 +1,21 @@
-<header>
-    <div>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a routerLinkActive="active" href="" class="nav-links" mat-list-item>Home</a>
+            <a *ngIf="userLoggedIn" routerLink="/projects" class="nav-links" mat-list-item>Projects</a>
+            <a *ngIf="userLoggedIn" routerLink="/profile" class="nav-links" mat-list-item>Profile</a>
+            <a class="nav-links" (click)="toggleLogin()" mat-list-item>{{userLoggedIn? 'Logout' : 'Login'}}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button class="headerToolbar" mat-icon-button (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
         <h1><a  href="javascript:void(0);"  id="page-heading" style="cursor:pointer">BootCamp 1</a></h1>
-    </div>
-    <div>
-        <nav>
-            <a routerLinkActive="active" href="" class="nav-links">Home</a>
-            <a *ngIf="userLoggedIn" routerLink="/projects" class="nav-links">Projects</a>
-            <a *ngIf="userLoggedIn" routerLink="/profile" class="nav-links">Profile</a>
-            <a class="nav-links" (click)="toggleLogin()">{{userLoggedIn? 'Logout' : 'Login'}}</a>
-        </nav>
-    </div>
-</header>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
 <hr>
