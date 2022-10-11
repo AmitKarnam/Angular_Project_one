@@ -5,14 +5,14 @@
 
     <mat-form-field appearance="fill" class="login-full-width">  
       <mat-label for="uname"><b>Email</b></mat-label>
-      <input type="text" formControlName="email" placeholder="Enter Email" name="uname" required>
+      <input type="text" matInput formControlName="email" placeholder="Enter Email" name="uname" required>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="fill" class="login-full-width">
       <mat-label for="psw"><b>Password</b></mat-label>
-      <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" matInput formControlName="password" placeholder="Enter Password" name="psw" required>
     </mat-form-field>
 
       <button type="submit" (click)="login()">Log In</button>

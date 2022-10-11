@@ -1,7 +1,7 @@
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav>
-        <mat-nav-list>
-            <a routerLinkActive="active" href="" class="nav-links" mat-list-item>Home</a>
+        <mat-nav-list (click)="sidenav.close()">
+            <a routerLinkActive="active" routerLink="/" class="nav-links" mat-list-item>Home</a>
             <a *ngIf="userLoggedIn" routerLink="/projects" class="nav-links" mat-list-item>Projects</a>
             <a *ngIf="userLoggedIn" routerLink="/profile" class="nav-links" mat-list-item>Profile</a>
             <a class="nav-links" (click)="toggleLogin()" mat-list-item>{{userLoggedIn? 'Logout' : 'Login'}}</a>
