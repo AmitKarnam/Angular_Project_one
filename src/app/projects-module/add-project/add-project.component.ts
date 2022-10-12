@@ -6,7 +6,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { members } from '../members';
 import { FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-
+import { Router } from '@angular/router';
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -32,7 +32,7 @@ export class AddProjectComponent implements OnInit,OnDestroy {
   selectFormControl = new FormControl('', Validators.required);
   matcher = new MyErrorStateMatcher();
 
-  constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent) {}
+  constructor(private location: Location, private getProjectService: GetProjectServiceService, private projectComponent: ProjectsComponent,private router:Router) {}
 
   ngOnInit(): void {
       this.memberFlag=ProjectsComponent.updateFlag;
@@ -63,8 +63,8 @@ export class AddProjectComponent implements OnInit,OnDestroy {
         console.log(this.project)
         await
         this.getProjectService.adddProject(this.project).then(() => alert("Success adding project")).catch(()=>alert('Error Adding Project'))
-        this.location.back()
         this.project={}
+        this.router.navigate(['/projects'])
       }
       else if( ProjectsComponent.updateFlag===true){
     
@@ -73,6 +73,7 @@ export class AddProjectComponent implements OnInit,OnDestroy {
         this.project={}
        // this.location.back();
         ProjectsComponent.updateFlag=false;
+        this.router.navigate(['/projects'])
       }
     }
   }

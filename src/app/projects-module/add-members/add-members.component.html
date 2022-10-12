@@ -1,41 +1,31 @@
 <form (ngSubmit)="onSubmit()">
     <mat-form-field>
         <mat-label for="firstName">First Name : </mat-label>
-        <input matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.firstName" id="member_data.firstName" type="text" name="firstName">
-        <mat-error *ngIf="notNullFormControl.hasError('memberFirstName') && !notNullFormControl.hasError('required')">Please Enter a Member Name</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Member First Name is <strong>required</strong></mat-error>
+        <input matInput [(ngModel)]="member_data.firstName" id="member_data.firstName" type="text" name="firstName">
     </mat-form-field>
     <br>
 
     <mat-form-field>
         <mat-label for="lastName">Last Name : </mat-label>
-        <input matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.lastName" id="lastName" type="text" name="lastName">
-        <mat-error *ngIf="notNullFormControl.hasError('memberLastName') && !notNullFormControl.hasError('required')">Please Enter a Project name</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Member Last Name is <strong>required</strong></mat-error>
+        <input matInput [(ngModel)]="member_data.lastName" id="lastName" type="text" name="lastName">
     </mat-form-field>
     <br>
 
     <mat-form-field>   
         <mat-label for="email">email : </mat-label>
-        <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.email" id="email" type="email" name="email">
-        <mat-error *ngIf="notNullFormControl.hasError('memberemail') && !notNullFormControl.hasError('required')">Please Enter the member's email</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Email is <strong>required</strong></mat-error>
+        <input matInput [(ngModel)]="member_data.email" id="email" type="email" name="email">
     </mat-form-field>
     <br>
 
     <mat-form-field>
         <mat-label for="phoneNo">phoneNo : </mat-label>
-        <input matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.phoneNo" id="phoneNo" type="number" name="phoneNo">
-        <mat-error *ngIf="notNullFormControl.hasError('memberPhoneNo') && !notNullFormControl.hasError('required')">Please Enter the member's Phone Number</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Phone Number is <strong>required</strong></mat-error>
+        <input matInput [(ngModel)]="member_data.phoneNo" id="phoneNo" type="number" name="phoneNo">
     </mat-form-field>
     <br>
 
     <mat-form-field>    
         <mat-label for="hoursPerWeek">Hours per week : </mat-label>
-        <input matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher" [(ngModel)]="member_data.hoursPerWeek" id="hoursPerweek" type="number" name="hoursPerWeek">
-        <mat-error *ngIf="notNullFormControl.hasError('memberhoursPerWeek') && !notNullFormControl.hasError('required')">Please Enter the member's Working houes per week</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Hours Per Week is <strong>required</strong></mat-error>
+        <input matInput [(ngModel)]="member_data.hoursPerWeek" id="hoursPerweek" type="number" name="hoursPerWeek">
     </mat-form-field>
     <br>
     <button mat-raised-button color="accent" type="submit">Save</button>

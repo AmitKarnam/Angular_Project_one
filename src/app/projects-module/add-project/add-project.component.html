@@ -9,9 +9,8 @@
             Project Name
         </mat-label>
 
-        <input type="text" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.name" id="projectName"  name="name">
-        <mat-error *ngIf="notNullFormControl.hasError('projectName') && !notNullFormControl.hasError('required')">Please Enter a Project name</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Name is <strong>required</strong></mat-error>
+        <input type="text" matInput  [(ngModel)]="project.name" id="projectName"  name="name">
+        
     </mat-form-field>
 
     <br>
@@ -21,9 +20,7 @@
             Project Description
         </mat-label>
 
-        <input type="text" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.description" id="description"  name="description">
-        <mat-error *ngIf="notNullFormControl.hasError('projectDescription') && !notNullFormControl.hasError('required')">Please Enter Project Description</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Description is <strong>required</strong></mat-error>
+        <input type="text" matInput [(ngModel)]="project.description" id="description"  name="description">
     </mat-form-field>
 
     <br>
@@ -32,7 +29,6 @@
         <mat-label for="startDate">Start Date : </mat-label>
         <input matInput  [(ngModel)]="project.startDate" id="startDate" type="datetime-local" name="startDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
     </mat-form-field>   
     <br>
     <br>
@@ -42,9 +38,7 @@
             Project Duration(In weeks) 
         </mat-label>
 
-        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.duration" id="duration"  name="duration">
-        <mat-error *ngIf="notNullFormControl.hasError('projectDuration') && !notNullFormControl.hasError('required')">Please Enter Project Duration</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Duration is <strong>required</strong></mat-error>
+        <input type="number" matInput [(ngModel)]="project.duration" id="duration"  name="duration">
     </mat-form-field>
 
    <br>
@@ -54,9 +48,7 @@
             Project Cost(In INR)
         </mat-label>
 
-        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.budget" id="budget"  name="budget">
-        <mat-error *ngIf="notNullFormControl.hasError('projectBudget') && !notNullFormControl.hasError('required')">Please Enter Project Budget</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Project Budget is <strong>required</strong></mat-error>
+        <input type="number" matInput  [(ngModel)]="project.budget" id="budget"  name="budget">
     </mat-form-field>
 
     <br>
@@ -82,9 +74,7 @@
            Staff Cost(In INR)
         </mat-label>
 
-        <input type="number" matInput [formControl]="notNullFormControl" [errorStateMatcher]="matcher"  [(ngModel)]="project.staffCost" id="staffCost"  name="staffCost">
-        <mat-error *ngIf="notNullFormControl.hasError('staffCost') && !notNullFormControl.hasError('required')">Please Enter Staff Cost</mat-error>
-        <mat-error *ngIf="notNullFormControl.hasError('required')">Staff Cost is <strong>required</strong></mat-error>
+        <input type="number" matInput [(ngModel)]="project.staffCost" id="staffCost"  name="staffCost">
     </mat-form-field>
 
     <br>
